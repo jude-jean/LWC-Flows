@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MassChangeOwner</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Mass Change Owner</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/flow/CaseMassChangeOwner?currentOwnerId={!$User.Id}&amp;currentFirstNameOwner={!$User.FirstName}&amp;currentLastNameOwner={!$User.LastName}&amp;url={!$Site.OriginalUrl}&amp;objectApiName=Case&amp;retURL=500/o&amp;endMessage=Message passé par l&apos;URL du custom button</url>
+</WebLink>

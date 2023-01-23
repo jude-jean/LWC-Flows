@@ -1,0 +1,49 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={toDisplayed}>
+        <div class="slds-notify_container slds-is-relative">
+            <div class="slds-notify slds-notify_toast" role="status" data-id="slds-theme">
+                <span class="slds-assistive-text">{toastVariant}</span>
+                <span
+                    data-id="slds-icon-utility"
+                    class="slds-icon_container slds-m-right_small slds-no-flex slds-align-top"
+                    title="Description of icon when needed">
+                    <lightning-icon icon-name={toastIconName} variant="inverse" alternative-text={toastVariant} title={toastVariant}
+                        size="x-small"></lightning-icon>
+                    <!--<svg class="slds-icon slds-icon_small" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+                    </svg>-->
+                </span>
+                <div class="slds-notify__content">
+                    <h2 class="slds-text-heading_small ">{toastMessage}</h2>
+                </div>
+                <div class="slds-notify__close">
+                    <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                        <lightning-icon icon-name="utility:close" variant="inverse" alternative-text="Close" title="Close" size="x-small" onclick={handleToastClose}>
+                        </lightning-icon>
+                        <!--<svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>-->
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!--<lightning-avatar src="/bad/image/url.jpg" initials="" fallback-icon-name="standard:avatar"  alternative-text="Users" class="slds-m-right_small"></lightning-avatar>-->
+    <lightning-card title="Mass Change Owner" icon-name="custom:custom14">
+        <!--<ul class="slds-var-m-around_medium">
+            <template for:each={ids} for:item="id">
+                <li key={id}>{id}</li>
+            </template>
+        </ul>-->
+        <p class="slds-m-left_xx-large">{message}</p>
+        <c-user-or-queue-wrap is-user-selected=true search-term="" users=[] queues=[]
+            onownerselected={handleOwnerSelected}></c-user-or-queue-wrap>
+        <lightning-button variant="Neutral" label="Cancel" title="Cancel" onclick={handleCancel}
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="Brand" label="Submit" title="Submit" onclick={handleSubmit}
+            class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+
+</template>

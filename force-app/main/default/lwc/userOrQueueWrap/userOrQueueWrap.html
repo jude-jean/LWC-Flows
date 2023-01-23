@@ -1,0 +1,39 @@
+<template>
+    <lightning-layout horizontal-align={horizontalAlign}>
+        <lightning-layout-item size="1" padding="around-small">
+            <c-user-or-queue-select icon-name={iconName} onuserorqueue={handleUserOrQueue}></c-user-or-queue-select>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-m-top_medium" size="11" padding="around-small">
+            <!--<lightning-card>-->
+            <div>
+                <lightning-input name="userorqueue-search" class="wbx-userorqueue_align" placeholder={placeHolder} type="search" value={searchTerm} onchange={handleSearchChange}></lightning-input>
+                <template if:true={isDisplayed}>
+                    <template if:true={isUserSelected} >
+                        <lightning-layout multiple-rows="true" class="wbx-userorqueue_align wbx-userorqueue_margin-top">        
+                            <template for:each={users} for:item="user">
+                                <div key={user.Name} class="slds-col slds-size_12-of-12">
+                                    <lightning-icon key={user.Name} icon-name="utility:user" alternative-text="User" title="User" size="xx-small">
+                                    </lightning-icon>                                
+                                    <lightning-layout-item key={user.Id} data-name={user.Name} onclick={handleSelectedName} class="slds-m-left_x-small">{user.Name}</lightning-layout-item>    
+                                </div>
+                            </template>
+                        </lightning-layout>
+                    </template>
+                    <template if:false={isUserSelected} >
+                        <lightning-layout multiple-rows="true" class="wbx-userorqueue_align wbx-userorqueue_margin-top">
+                            <template for:each={queues} for:item="queue">
+                                <div key={queue.Queue.Name} class="slds-col slds-size_12-of-12">
+                                    <lightning-icon key={queue.Queue.Name} icon-name="utility:work_order_type" alternative-text="Queue" title="Queue" size="xx-small">
+                                    </lightning-icon>                                    
+                                    <lightning-layout-item key={queue.QueueId} data-name={queue.Queue.Name} onclick={handleSelectedName} class="slds-m-left_x-small">{queue.Queue.Name}</lightning-layout-item>
+                                </div>
+                                
+                            </template>
+                        </lightning-layout>
+                    </template>
+                </template>
+            </div>
+            <!--</lightning-card>-->
+        </lightning-layout-item>        
+    </lightning-layout>
+</template>

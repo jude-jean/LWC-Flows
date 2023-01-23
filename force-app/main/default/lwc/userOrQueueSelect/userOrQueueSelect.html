@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-m-bottom_x-large">
+        <div class="slds-p-around_medium lgc-bg">
+            <!-- variant="border-filled"  -->
+            <lightning-button-menu alternative-text="Show menu" icon-name={iconName} variant="brand" onselect={handleSelect}>
+                <lightning-menu-item value="User" label="Users" prefix-icon-name="utility:user"></lightning-menu-item>
+                <lightning-menu-item value="Queue" label="Queues" prefix-icon-name="utility:work_order_type"></lightning-menu-item>
+            </lightning-button-menu>
+        </div>
+    </div>        
+</template>

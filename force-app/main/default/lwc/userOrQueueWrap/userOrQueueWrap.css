@@ -1,0 +1,22 @@
+/*
+lightning-layout-item[class="slds-size_12-of-12"]:hover {
+    background-color: rgb(243, 243, 243);
+}
+*/
+.wbx-userorqueue_align {
+    margin-left: -55px;
+    margin-top:-4px;
+}
+
+.wbx-userorqueue_margin-top {
+    margin-top: 2px;
+}
+
+div[class="slds-col slds-size_12-of-12"] {
+    height: 22px;
+}
+
+div[class="slds-col slds-size_12-of-12"]:hover {
+    background-color: rgb(216, 230, 254);    /*rgb(181, 200, 241); rgb(187, 203, 238);  */
+    cursor: pointer;
+}
