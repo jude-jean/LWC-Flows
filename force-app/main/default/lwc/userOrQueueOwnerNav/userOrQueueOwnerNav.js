@@ -1,8 +1,9 @@
 import { LightningElement, api } from 'lwc';
 import { FlowNavigationFinishEvent, FlowNavigationBackEvent, FlowAttributeChangeEvent } from 'lightning/flowSupport';
-//import { NavigationMixin } from 'lightning/navigation';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class userOrQueueOwnerNav extends LightningElement {
+//export default class userOrQueueOwnerNav extends NavigationMixin(LightningElement) {
+export default class userOrQueueOwnerNav extends LightningElement {    
     @api isSubmit;
     displayBackButton;
     url
@@ -12,15 +13,13 @@ export default class userOrQueueOwnerNav extends LightningElement {
         console.log('isSubmit = '+this.isSubmit);
         this.displayBackButton = (this.isSubmit == false) ? true : false; 
         console.log('displayBackButton = '+this.displayBackButton);
-        this.casePageRef = {
-            type: 'standard__objectPage',
-            attributes: {
-                objectApiName: 'Case',
-                actionName: 'home'
-            }
-        };
-        //this[NavigationMixin.GenerateUrl](this.casePageRef)
-        //    .then(url => this.url = url);                       
+        //this.casePageRef = {
+        //    type: 'standard__objectPage',
+        //    attributes: {
+        //        objectApiName: 'Case',
+        //        actionName: 'home'
+        //    }
+        //};
     }
 
     handleBack() {
@@ -32,11 +31,17 @@ export default class userOrQueueOwnerNav extends LightningElement {
     handleQuit(evt) {
         console.log('Quit button...');
         if(this.isSubmit) { 
-            //console.log('Navigation vers '+this.url);
-            //evt.preventDefault();
-            //evt.stopPropagation();    
-            //this[NavigationMixin.Navigate](this.casePageRef);           
             window.open('/lightning/o/Case/list?filterName=Recent', '_top');
+                //this[NavigationMixin.Navigate]({
+                //    type: 'standard__objectPage',
+                //    attributes: {
+                //        objectApiName: 'Case',
+                //        actionName: 'list'
+                //    },
+                //    state: {
+                //        filterName: 'Recent'
+                //    }
+                //});
 
         }
         else {

@@ -16,6 +16,7 @@ export default class caseMassChangeOwner extends NavigationMixin(LightningElemen
     @api currentLastNameOwner;
     @api currentOwnerId;
     ownerSelected;
+    disabled = false;
     //message = 'You have selected ';
     message;
     //@wire(MessageContext)
@@ -172,8 +173,8 @@ export default class caseMassChangeOwner extends NavigationMixin(LightningElemen
                     this.toastMessage = 'Your Change Owner request is being processed.... See your next notifications to know the result. You will be redirect soon!!';
                     this.isSubmit = true;
                     this.toDisplayed = true;
+                    this.disabled = true;
 
-                    
                     //const event = new ShowToastEvent({
                     //    title: 'You must to select an owner',
                     //    message:
